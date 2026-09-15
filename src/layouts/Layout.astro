@@ -161,6 +161,16 @@ const jsonLd = {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-521QYX3Z29"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-521QYX3Z29');
+    </script>
     
     <!-- COOP / COEP Service Worker (Required for SharedArrayBuffer on GitHub Pages) -->
     <script is:inline src="/coi-serviceworker.js"></script>
