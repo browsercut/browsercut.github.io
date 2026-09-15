@@ -1,0 +1,110 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations, getRelativeLocaleUrl } from '../i18n/utils';
+import ThemeToggle from './ThemeToggle.astro';
+import LanguagePicker from './LanguagePicker.astro';
+
+interface Props {
+  currentLang: Locale;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+const homeUrl = getRelativeLocaleUrl(currentLang);
+---
+
+<header
+  class="sticky top-0 z-40 w-full backdrop-blur-md bg-[#F8FAFC]/85 dark:bg-[#091540]/85 border-b border-[#ABD2FA]/50 dark:border-[#1B2CC1]/50 transition-colors duration-200"
+>
+  <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-14 sm:h-16 flex items-center justify-between">
+    <!-- Brand Logo -->
+    <a
+      href={homeUrl}
+      class="flex items-center gap-2 sm:gap-2.5 group focus:outline-none focus:ring-2 focus:ring-vivid-blue rounded-xl p-0.5 sm:p-1"
+      aria-label="BrowserCut Home"
+    >
+      <div
+        class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-tr from-vivid-blue to-soft-blue flex items-center justify-center shadow-glow group-hover:scale-105 transition-transform flex-shrink-0"
+      >
+        <!-- Custom Film/Scissor SVG Icon -->
+        <svg
+          class="w-4 h-4 sm:w-5 sm:h-5 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2.2"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"
+          />
+        </svg>
+      </div>
+      <div class="flex flex-col">
+        <span class="text-base sm:text-lg font-extrabold tracking-tight text-deep-navy dark:text-white flex items-center gap-1">
+          Browser<span class="text-vivid-blue dark:text-soft-blue">Cut</span>
+          <span
+            class="hidden sm:inline-block text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded-full bg-pale-blue/40 dark:bg-vivid-blue/40 text-vivid-blue dark:text-pale-blue border border-pale-blue dark:border-vivid-blue/60"
+          >
+            WASM
+          </span>
+        </span>
+        <span class="text-[10px] sm:text-[11px] font-medium text-deep-navy/60 dark:text-pale-blue/60 hidden lg:inline">
+          100% Client-Side Video Editor
+        </span>
+      </div>
+    </a>
+
+    <!-- Nav Anchors (Desktop only: lg+) -->
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-semibold text-deep-navy/80 dark:text-pale-blue/80">
+      <a
+        href="#features"
+        class="hover:text-vivid-blue dark:hover:text-white transition-colors"
+      >
+        {t('nav.features')}
+      </a>
+      <a
+        href="#how-it-works"
+        class="hover:text-vivid-blue dark:hover:text-white transition-colors"
+      >
+        {t('nav.howItWorks')}
+      </a>
+      <a
+        href="#faq"
+        class="hover:text-vivid-blue dark:hover:text-white transition-colors"
+      >
+        {t('nav.faq')}
+      </a>
+    </nav>
+
+    <!-- Right Controls: Language, Theme, Support CTA (Simple icon-only on Mobile & Tablet) -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- Language Picker (Icon only on mobile/tablet) -->
+      <LanguagePicker currentLang={currentLang} />
+
+      <!-- Theme Switcher (Icon button) -->
+      <ThemeToggle ariaLabel={t('nav.theme')} />
+
+      <!-- Support Developer Button: Icon-only on mobile & tablet (<lg), text label on desktop (lg+) -->
+      <a
+        href="https://buymeacoffee.com/kisharadilz"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-1.5 w-9 h-9 sm:w-10 sm:h-10 lg:w-auto lg:px-3.5 lg:py-2 text-xs sm:text-sm font-bold rounded-xl bg-coffee-yellow text-deep-navy shadow-sm hover:bg-yellow-300 hover:shadow-md active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-yellow-400 flex-shrink-0"
+        title="Support BrowserCut on Buy Me a Coffee"
+        aria-label="Support BrowserCut on Buy Me a Coffee"
+      >
+        <!-- Coffee Cup SVG Icon -->
+        <svg
+          class="w-4 h-4 sm:w-4.5 sm:h-4.5 text-deep-navy flex-shrink-0"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M20 3H4v10c0 2.21 1.79 4 4 4h6c2.21 0 4-1.79 4-4v-3h2c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 5h-2V5h2v3zM4 19h16v2H4z" />
+        </svg>
+        <span class="hidden lg:inline whitespace-nowrap">{t('nav.support')}</span>
+      </a>
+    </div>
+  </div>
+</header>

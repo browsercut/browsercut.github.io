@@ -1,0 +1,123 @@
+---
+import { languages, type Locale, defaultLang } from '../i18n/ui';
+
+interface Props {
+  currentLang: Locale;
+}
+
+const { currentLang } = Astro.props;
+const current = languages[currentLang] || languages[defaultLang];
+
+const localeItems = (Object.keys(languages) as Locale[]).map((key) => {
+  const href = key === defaultLang ? '/' : `/${key}/`;
+  return {
+    key,
+    name: languages[key].name,
+    flag: languages[key].flag,
+    href,
+    active: key === currentLang,
+  };
+});
+---
+
+<div class="relative inline-block text-left" id="lang-picker-container">
+  <button
+    type="button"
+    id="lang-picker-btn"
+    class="inline-flex items-center justify-center gap-1 w-9 h-9 sm:w-10 sm:h-10 lg:w-auto lg:px-2.5 lg:py-1.5 text-xs font-semibold rounded-xl bg-white/70 dark:bg-deep-navy/80 border border-pale-blue/60 dark:border-vivid-blue/60 text-deep-navy dark:text-pale-blue hover:border-soft-blue dark:hover:border-soft-blue shadow-sm transition-all focus:outline-none focus:ring-2 focus:ring-vivid-blue flex-shrink-0"
+    aria-haspopup="true"
+    aria-expanded="false"
+    aria-label="Select Language"
+    title={current.name}
+  >
+    <span class="text-base sm:text-base leading-none">{current.flag}</span>
+    <span class="hidden lg:inline font-medium">{current.name}</span>
+    <svg
+      class="w-3 h-3 text-deep-navy/60 dark:text-pale-blue/60 transition-transform duration-200 hidden sm:block"
+      id="lang-picker-arrow"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="2.5"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <div
+    id="lang-picker-menu"
+    class="hidden absolute right-0 mt-2 w-36 sm:w-40 origin-top-right rounded-xl bg-white dark:bg-[#0e1c4e] border border-pale-blue/60 dark:border-vivid-blue/70 shadow-xl py-1 z-50 ring-1 ring-black ring-opacity-5 focus:outline-none divide-y divide-gray-100 dark:divide-vivid-blue/20"
+    role="menu"
+    aria-orientation="vertical"
+  >
+    <div class="py-1">
+      {
+        localeItems.map((item) => (
+          <a
+            href={item.href}
+            class={`flex items-center justify-between px-3 py-2 text-xs transition-colors ${
+              item.active
+                ? 'bg-pale-blue/30 dark:bg-vivid-blue/40 text-vivid-blue dark:text-white font-bold'
+                : 'text-deep-navy/90 dark:text-pale-blue/90 hover:bg-pale-blue/15 dark:hover:bg-vivid-blue/25'
+            }`}
+            role="menuitem"
+          >
+            <span class="flex items-center gap-2">
+              <span class="text-sm">{item.flag}</span>
+              <span>{item.name}</span>
+            </span>
+            {item.active && (
+              <svg class="w-3.5 h-3.5 text-vivid-blue dark:text-pale-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            )}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  function setupLangPicker() {
+    const container = document.getElementById('lang-picker-container');
+    const btn = document.getElementById('lang-picker-btn');
+    const menu = document.getElementById('lang-picker-menu');
+    const arrow = document.getElementById('lang-picker-arrow');
+
+    if (!container || !btn || !menu || !arrow) return;
+
+    function toggleMenu(show) {
+      const isVisible = show !== undefined ? show : menu.classList.contains('hidden');
+      if (isVisible) {
+        menu.classList.remove('hidden');
+        btn.setAttribute('aria-expanded', 'true');
+        arrow.classList.add('rotate-180');
+      } else {
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded', 'false');
+        arrow.classList.remove('rotate-180');
+      }
+    }
+
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!container.contains(e.target)) {
+        toggleMenu(false);
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        toggleMenu(false);
+      }
+    });
+  }
+
+  setupLangPicker();
+  document.addEventListener('astro:after-swap', setupLangPicker);
+</script>

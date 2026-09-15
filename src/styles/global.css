@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-deep-navy: #091540;
+    --color-vivid-blue: #1B2CC1;
+    --color-soft-blue: #7692FF;
+    --color-pale-blue: #ABD2FA;
+    --color-coffee-yellow: #FFDD00;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+
+  body {
+    @apply bg-[#F8FAFC] text-[#091540] antialiased selection:bg-[#7692FF] selection:text-white;
+    min-height: 100vh;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  html.dark body {
+    @apply bg-[#091540] text-[#ABD2FA] selection:bg-[#1B2CC1] selection:text-[#ABD2FA];
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ABD2FA;
+  border-radius: 9999px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1B2CC1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7692FF;
+}
+
+/* Range input styling for timeline sliders */
+input[type='range'] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type='range']:focus {
+  outline: none;
+}
+
+/* Webkit Range Thumb */
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #1B2CC1;
+  border: 2px solid #ABD2FA;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: grab;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.dark input[type='range']::-webkit-slider-thumb {
+  background: #7692FF;
+  border-color: #091540;
+}
+
+input[type='range']::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  background: #7692FF;
+}
+
+input[type='range']::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.25);
+}
+
+/* Firefox Range Thumb */
+input[type='range']::-moz-range-thumb {
+  height: 18px;
+  width: 18px;
+  border-radius: 50%;
+  background: #1B2CC1;
+  border: 2px solid #ABD2FA;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: grab;
+}
+
+.dark input[type='range']::-moz-range-thumb {
+  background: #7692FF;
+  border-color: #091540;
+}
+
+/* Range Track */
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+.dark input[type='range']::-webkit-slider-runnable-track {
+  background: #142054;
+}
+
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 6px;
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+.dark input[type='range']::-moz-range-track {
+  background: #142054;
+}
+
+/* Pulsing / loading glow effects */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite ease-in-out;
+}

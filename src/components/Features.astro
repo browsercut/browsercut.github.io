@@ -1,0 +1,122 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  currentLang: Locale;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+
+const features = [
+  {
+    icon: 'shield',
+    title: t('features.f1.title'),
+    desc: t('features.f1.desc'),
+    tag: '100% Client-Side',
+  },
+  {
+    icon: 'scissors',
+    title: t('features.f2.title'),
+    desc: t('features.f2.desc'),
+    tag: 'Frame-Accurate',
+  },
+  {
+    icon: 'music',
+    title: t('features.f3.title'),
+    desc: t('features.f3.desc'),
+    tag: 'Audio Engine',
+  },
+  {
+    icon: 'sparkles',
+    title: t('features.f4.title'),
+    desc: t('features.f4.desc'),
+    tag: 'Fade In / Out',
+  },
+  {
+    icon: 'gift',
+    title: t('features.f5.title'),
+    desc: t('features.f5.desc'),
+    tag: 'No Watermarks',
+  },
+  {
+    icon: 'cpu',
+    title: t('features.f6.title'),
+    desc: t('features.f6.desc'),
+    tag: 'FFmpeg.wasm',
+  },
+];
+---
+
+<section id="features" class="py-16 md:py-24 relative overflow-hidden">
+  <!-- Subtle gradient background glow -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-soft-blue/10 dark:bg-vivid-blue/10 blur-[100px] rounded-full pointer-events-none"></div>
+
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-pale-blue/30 dark:bg-vivid-blue/30 text-vivid-blue dark:text-soft-blue border border-pale-blue dark:border-vivid-blue/50 mb-4">
+        <span>⚡</span>
+        <span>{t('hero.badge')}</span>
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-deep-navy dark:text-white">
+        {t('features.title')}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-deep-navy/70 dark:text-pale-blue/70">
+        {t('features.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+      {
+        features.map((feat) => (
+          <div class="group relative rounded-2xl p-7 bg-white/80 dark:bg-[#0c1844]/80 backdrop-blur-sm border border-pale-blue/60 dark:border-vivid-blue/40 shadow-sm hover:shadow-glow-soft hover:border-soft-blue dark:hover:border-soft-blue transition-all duration-300">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 rounded-xl bg-pale-blue/30 dark:bg-vivid-blue/30 text-vivid-blue dark:text-pale-blue flex items-center justify-center group-hover:scale-110 transition-transform">
+                {feat.icon === 'shield' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                )}
+                {feat.icon === 'scissors' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243 4.243 3 3 0 004.243-4.243zm0-5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z" />
+                  </svg>
+                )}
+                {feat.icon === 'music' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
+                  </svg>
+                )}
+                {feat.icon === 'sparkles' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                  </svg>
+                )}
+                {feat.icon === 'gift' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 01-2-2V8a2 2 0 012-2h14a2 2 0 012 2v2a2 2 0 01-2 2M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                  </svg>
+                )}
+                {feat.icon === 'cpu' && (
+                  <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                  </svg>
+                )}
+              </div>
+              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-[#F8FAFC] dark:bg-deep-navy/80 text-deep-navy/70 dark:text-pale-blue/70 border border-pale-blue/50 dark:border-vivid-blue/50">
+                {feat.tag}
+              </span>
+            </div>
+            <h3 class="text-lg font-bold text-deep-navy dark:text-white mb-2">
+              {feat.title}
+            </h3>
+            <p class="text-sm text-deep-navy/70 dark:text-pale-blue/70 leading-relaxed">
+              {feat.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

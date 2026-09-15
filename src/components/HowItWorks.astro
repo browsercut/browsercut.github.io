@@ -1,0 +1,66 @@
+---
+import type { Locale } from '../i18n/ui';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  currentLang: Locale;
+}
+
+const { currentLang } = Astro.props;
+const t = useTranslations(currentLang);
+
+const steps = [
+  {
+    num: t('how.step1.num'),
+    title: t('how.step1.title'),
+    desc: t('how.step1.desc'),
+    icon: 'upload',
+  },
+  {
+    num: t('how.step2.num'),
+    title: t('how.step2.title'),
+    desc: t('how.step2.desc'),
+    icon: 'sliders',
+  },
+  {
+    num: t('how.step3.num'),
+    title: t('how.step3.title'),
+    desc: t('how.step3.desc'),
+    icon: 'download',
+  },
+];
+---
+
+<section id="how-it-works" class="py-16 md:py-24 bg-pale-blue/15 dark:bg-[#060e2c] border-y border-pale-blue/50 dark:border-vivid-blue/30">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-deep-navy dark:text-white">
+        {t('how.title')}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-deep-navy/70 dark:text-pale-blue/70">
+        {t('how.subtitle')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <!-- Decorative line between cards on desktop -->
+      <div class="hidden md:block absolute top-1/2 left-[15%] right-[15%] h-0.5 bg-gradient-to-r from-vivid-blue/30 via-soft-blue/50 to-vivid-blue/30 -translate-y-6 z-0"></div>
+
+      {
+        steps.map((step) => (
+          <div class="relative z-10 flex flex-col items-center text-center p-8 rounded-2xl bg-white/90 dark:bg-deep-navy/90 border border-pale-blue/70 dark:border-vivid-blue/50 shadow-sm hover:shadow-md transition-shadow">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-vivid-blue to-soft-blue text-white font-extrabold text-xl flex items-center justify-center mb-6 shadow-glow">
+              {step.num}
+            </div>
+            <h3 class="text-xl font-bold text-deep-navy dark:text-white mb-3">
+              {step.title}
+            </h3>
+            <p class="text-sm text-deep-navy/70 dark:text-pale-blue/70 leading-relaxed">
+              {step.desc}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
