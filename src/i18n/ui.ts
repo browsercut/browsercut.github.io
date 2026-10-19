@@ -20,7 +20,7 @@ export const ui = {
     'nav.features': 'Features',
     'nav.howItWorks': 'How It Works',
     'nav.faq': 'FAQ',
-    'nav.support': 'Buy Me a Coffee',
+    'nav.support': 'Support on Ko-fi',
     'nav.theme': 'Toggle Theme',
     'nav.language': 'Language',
 
@@ -176,7 +176,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Free, open, in-browser video and audio editor powered by WebAssembly. Zero uploads, zero tracking, maximum privacy.',
-    'footer.supportBtn': 'Support the Developer on Buy Me a Coffee',
+    'footer.supportBtn': 'Support the Developer on Ko-fi',
     'footer.github': 'GitHub Repository',
     'footer.privacy': 'Privacy First',
     'footer.allRights': 'BrowserCut. Open Source Client-Side Video Utility.',
@@ -191,7 +191,7 @@ export const ui = {
     'nav.features': 'Funciones',
     'nav.howItWorks': 'Cómo Funciona',
     'nav.faq': 'Preguntas',
-    'nav.support': 'Invítame un Café',
+    'nav.support': 'Apóyame en Ko-fi',
     'nav.theme': 'Cambiar Tema',
     'nav.language': 'Idioma',
 
@@ -346,7 +346,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Editor de video y audio gratuito en el navegador con WebAssembly. Cero subidas, cero rastreo, privacidad total.',
-    'footer.supportBtn': 'Apoya al Desarrollador en Buy Me a Coffee',
+    'footer.supportBtn': 'Apoya al Desarrollador en Ko-fi',
     'footer.github': 'Repositorio en GitHub',
     'footer.privacy': 'Privacidad Garantizada',
     'footer.allRights': 'BrowserCut. Utilidad de video libre de código abierto.',
@@ -361,7 +361,7 @@ export const ui = {
     'nav.features': 'Recursos',
     'nav.howItWorks': 'Como Funciona',
     'nav.faq': 'Perguntas',
-    'nav.support': 'Apoie o Desenvolvedor',
+    'nav.support': 'Apoie no Ko-fi',
     'nav.theme': 'Alternar Tema',
     'nav.language': 'Idioma',
 
@@ -515,7 +515,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Editor de vídeo e áudio gratuito no navegador com WebAssembly. Zero uploads, zero rastreamento, máxima privacidade.',
-    'footer.supportBtn': 'Apoie o Desenvolvedor no Buy Me a Coffee',
+    'footer.supportBtn': 'Apoie o Desenvolvedor no Ko-fi',
     'footer.github': 'Repositório GitHub',
     'footer.privacy': 'Privacidade Garantida',
     'footer.allRights': 'BrowserCut. Utilitário de vídeo de código aberto.',
@@ -530,7 +530,7 @@ export const ui = {
     'nav.features': 'Funktionen',
     'nav.howItWorks': 'So Funktioniert Es',
     'nav.faq': 'FAQ',
-    'nav.support': 'Kaffee Spendieren',
+    'nav.support': 'Auf Ko-fi unterstützen',
     'nav.theme': 'Design Umschalten',
     'nav.language': 'Sprache',
 
@@ -685,7 +685,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Kostenloser, offener Video- und Audio-Editor im Browser mit WebAssembly. Keine Uploads, kein Tracking, volle Privatsphäre.',
-    'footer.supportBtn': 'Entwickler auf Buy Me a Coffee unterstützen',
+    'footer.supportBtn': 'Entwickler auf Ko-fi unterstützen',
     'footer.github': 'GitHub-Repository',
     'footer.privacy': 'Privatsphäre Garantiert',
     'footer.allRights': 'BrowserCut. Open-Source-Client-Videowerkzeug.',
@@ -700,7 +700,7 @@ export const ui = {
     'nav.features': 'Fonctionnalités',
     'nav.howItWorks': 'Comment Ça Marche',
     'nav.faq': 'FAQ',
-    'nav.support': 'Offrir un Café',
+    'nav.support': 'Soutenir sur Ko-fi',
     'nav.theme': 'Changer de Thème',
     'nav.language': 'Langue',
 
@@ -855,7 +855,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'Éditeur vidéo et audio gratuit dans le navigateur avec WebAssembly. Zéro téléversement, zéro suivi, confidentialité maximale.',
-    'footer.supportBtn': 'Soutenir le Développeur sur Buy Me a Coffee',
+    'footer.supportBtn': 'Soutenir le Développeur sur Ko-fi',
     'footer.github': 'Dépôt GitHub',
     'footer.privacy': 'Confidentialité Garantie',
     'footer.allRights': 'BrowserCut. Outil vidéo libre et open-source.',
@@ -870,7 +870,7 @@ export const ui = {
     'nav.features': '主な機能',
     'nav.howItWorks': '使い方',
     'nav.faq': 'よくある質問',
-    'nav.support': '開発者を支援',
+    'nav.support': 'Ko-fiで支援',
     'nav.theme': 'テーマ切替',
     'nav.language': '言語',
 
@@ -1025,7 +1025,7 @@ export const ui = {
     // Footer
     'footer.desc':
       'WebAssemblyを活用した完全ブラウザ完結型の無料動画・音声エディター。アップロード不要、トラッキングなし、究極のプライバシー。',
-    'footer.supportBtn': 'Buy Me a Coffeeで開発者を支援する',
+    'footer.supportBtn': 'Ko-fiで開発者を支援する',
     'footer.github': 'GitHubリポジトリ',
     'footer.privacy': 'プライバシー保護第一',
     'footer.allRights': 'BrowserCut. オープンソース・クライアントサイド動画ユーティリティ。',

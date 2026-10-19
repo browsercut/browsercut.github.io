@@ -6,7 +6,7 @@
 
 <p align="center">
   <a href="https://browsercut.github.io"><img src="https://img.shields.io/badge/Live_App-browsercut.github.io-1B2CC1?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Live Site"></a>
-  <a href="https://buymeacoffee.com/kisharadilz"><img src="https://img.shields.io/badge/Support-Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buymeacoffee&logoColor=091540" alt="Buy Me A Coffee"></a>
+  <a href="https://ko-fi.com/kishara"><img src="https://img.shields.io/badge/Support-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white" alt="Support on Ko-fi"></a>
   <img src="https://img.shields.io/badge/Astro-5.0-BC52EE?style=for-the-badge&logo=astro&logoColor=white" alt="Astro 5">
   <img src="https://img.shields.io/badge/React-19.0-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React 19">
   <img src="https://img.shields.io/badge/FFmpeg-WASM_0.12-007808?style=for-the-badge&logo=ffmpeg&logoColor=white" alt="FFmpeg.wasm">
@@ -171,8 +171,8 @@ This enables 100% client-side WebAssembly video processing on GitHub Pages witho
 BrowserCut is completely free, open-source, and has zero advertising or watermarks. If you find this project helpful, consider supporting the developer:
 
 <p align="left">
-  <a href="https://buymeacoffee.com/kisharadilz" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height="50" width="210">
+  <a href="https://ko-fi.com/kishara" target="_blank">
+    <img src="https://storage.ko-fi.com/cdn/kofi3.png?v=3" alt="Support on Ko-fi" height="50">
   </a>
 </p>
 
